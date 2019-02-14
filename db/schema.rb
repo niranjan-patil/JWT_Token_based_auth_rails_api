@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_063135) do
+ActiveRecord::Schema.define(version: 2019_02_14_054714) do
 
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.text "content"
+  create_table "restaurants", force: :cascade do |t|
+    t.string "rest_name"
+    t.integer "poc_contact_no"
+    t.string "poc_email"
+    t.string "poc_name"
+    t.string "encrypted_password"
+    t.integer "otp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
