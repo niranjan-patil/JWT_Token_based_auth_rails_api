@@ -1,4 +1,4 @@
-class AuthorizeApiRequest
+class AuthorizeRestApiRequest
   prepend SimpleCommand
 
   def initialize(headers = {})
@@ -6,24 +6,28 @@ class AuthorizeApiRequest
   end
 
   def call
-    user
+
+    restaurant
   end
 
   private
 
   attr_reader :headers
 
-  def user
-    @user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
-    @user || errors.add(:token, 'Invalid token') && nil
+  def restaurant
+
+    @restaurant ||= Restaurant.find(decoded_auth_token[:restaurant_id]) if decoded_auth_token
+    @restaurant || errors.add(:token, 'Invalid token') && nil
   end
 
   def decoded_auth_token
+
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
 
   end
 
   def http_auth_header
+    
     if headers['Authorization'].present?
       return headers['Authorization'].split(' ').last
     else

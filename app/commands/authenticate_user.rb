@@ -1,8 +1,8 @@
 class AuthenticateUser
   prepend SimpleCommand
 
-  def initialize(email, password)
-    @email = email
+  def initialize(phone, password)
+    @contact_no = phone
     @password = password
   end
 
@@ -12,7 +12,7 @@ class AuthenticateUser
 
   private
 
-  attr_accessor :email, :password
+  attr_accessor :contact_no, :password
 
   def user
     user = User.find_by_email(email)

@@ -1,26 +1,32 @@
 class RestaurantController < ApplicationController
+	skip_before_action :authenticate_rest_request, :only => [:create, :verify]
+	skip_before_action :authenticate_user_request
 	def create
-		otp = 1234
-		@restaurant = Restaurant.new(poc_contact_no: params[:poc_contact_no], otp: otp)
+		otp = 2500
+		@restaurant = Restaurant.new(poc_contact_no: params[:poc_contact_no], otp: otp, password: 'nir')
 		if @restaurant.save 
-			render json: "OTP sent", status: :ok
+			render json: I18n.t('otp_sent'), status: :ok
 		else
 			render json: @restaurant.errors.full_messages
 		end
 	end
+	def index 
+	end
 	def verify
-		if Restaurant.find_by(otp: params[:otp])
-			render json: "OTP verified successfully", status: :ok
-		else
-			render json: "Invalid otp"
-		end
+		command = AuthenticateRestaurant.call(params[:otp])
+
+   		if command.success?
+     		render json: { auth_token: command.result }
+   		else
+     		render json: { error: command.errors }, status: :unauthorized
+   		end
 	end
 	def update
-		@restaurant = Restaurant.find_by(poc_contact_no: params[:poc_contact_no])
-		if @restaurant.update(rest_name: params[:rest_name], poc_name: params[:poc_name], poc_email: params[:poc_email], encrypted_password: params[:encrypted_password])
-			render json: "Sign up successful"
+		@restaurant = Restaurant.find_by(poc_contact_no: params[:id])
+		if @restaurant && @restaurant.update(res_name: params[:rest_name], poc_name: params[:poc_name], poc_email: params[:poc_email], password: params[:encrypted_password])
+			render json: I18n.t('signup_success')
 		else
-			render json: "Unsuccessful"
+			render json: I18n.t('signup_not_success')
 		end
 	end
 end

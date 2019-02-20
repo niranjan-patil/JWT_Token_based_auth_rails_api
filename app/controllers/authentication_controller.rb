@@ -3,7 +3,7 @@ class AuthenticationController < ApplicationController
 
  def authenticate
    
-   command = AuthenticateUser.call(params[:email],params[:password])
+   command = AuthenticateLoginRestaurant.call(params[:poc_contact_no],params[:password])
 
    if command.success?
      render json: { auth_token: command.result }
@@ -11,8 +11,4 @@ class AuthenticationController < ApplicationController
      render json: { error: command.errors }, status: :unauthorized
    end
  end
- private
-  def article_params
-    params.require(:user).permit(:email, :password)
-  end
 end
