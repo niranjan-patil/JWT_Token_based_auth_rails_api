@@ -6,7 +6,9 @@ class AuthenticateRestaurant
   end
 
   def call
-    JsonWebToken.encode(restaurant_id: restaurant.id) if restaurant
+    if restaurant
+       JsonWebToken.encode(restaurant_id: restaurant.id)
+    end
   end
 
   private
@@ -15,6 +17,7 @@ class AuthenticateRestaurant
 
   def restaurant
     restaurant = Restaurant.find_by(otp: otp)
+
     return restaurant if restaurant
 
     errors.add :restaurant_authentication, 'invalid otp'

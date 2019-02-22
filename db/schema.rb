@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_130724) do
+ActiveRecord::Schema.define(version: 2019_02_22_110940) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "res_name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_130724) do
     t.integer "contact_no"
     t.float "points"
     t.integer "otp"
+    t.string "gender"
+    t.date "date_of_birth"
   end
 
 end

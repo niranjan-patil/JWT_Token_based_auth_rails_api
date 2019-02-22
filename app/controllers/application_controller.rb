@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
-	before_action :authenticate_user_request
-	before_action :authenticate_rest_request
+	#before_action :authenticate_user_request
+	#before_action :authenticate_rest_request
 
   attr_reader :current_restaurant, :current_user
 

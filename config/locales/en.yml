@@ -34,5 +34,5 @@ en:
   otp_sent: "OTP sent"
   otp_verified: "OTP verified successfully"
   otp_invalid: "Invalid OTP"
-  signup_sucess: "Sign up successful"
+  signup_success: "Sign up successful"
   signup_not_success: "Signup failed"

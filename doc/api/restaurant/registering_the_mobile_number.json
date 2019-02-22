@@ -1,0 +1,53 @@
+{
+  "resource": "Restaurant",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/signup",
+  "description": "Registering the mobile number",
+  "explanation": "Record will be added to database with contact_no and otp",
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Type of user- Customer/Restaurant"
+    },
+    {
+      "required": true,
+      "name": "contact_no",
+      "description": "Contact no of customer or person of contact for Restaurant"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/signup",
+      "request_body": "{\"type\":\"restaurant\",\"contact_no\":9168921251}",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 1,\n  \"res_name\": null,\n  \"poc_email\": null,\n  \"password_digest\": \"$2a$04$bRhYxQOd4b.Gmgfd7kfyh.YgMDuk5CzeyqEg09/KnWK9NSNmrmt/S\",\n  \"poc_contact_no\": 9168921251,\n  \"poc_name\": null,\n  \"otp\": 37398,\n  \"created_at\": \"2019-02-22T09:21:02.077Z\",\n  \"updated_at\": \"2019-02-22T09:21:02.077Z\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"c7a53308203b41b42bdcb4e7487d3368\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "49ac9583-ba58-47e2-adfb-2ab874751fdc",
+        "X-Runtime": "0.022229",
+        "Vary": "Origin",
+        "Content-Length": "258"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/signup\" -d '{\"type\":\"restaurant\",\"contact_no\":9168921251}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

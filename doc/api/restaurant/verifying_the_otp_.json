@@ -1,0 +1,53 @@
+{
+  "resource": "Restaurant",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/verify",
+  "description": "Verifying the otp ",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Type of user- Customer/Restaurant"
+    },
+    {
+      "required": true,
+      "name": "otp",
+      "description": "OTP sent to the registered mobile number"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/verify",
+      "request_body": "{\"type\":\"restaurant\",\"otp\":3381}",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"auth_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJyZXN0YXVyYW50X2lkIjoxLCJleHAiOjE1NTA5MTM2NjJ9.c2XqtoptueUFS-PQGwD5kBbk59e51J99d6ayK6c1yHI\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"a5cb814feab17784d80c7b63958711fb\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d0fd60ee-e9d9-4620-80c2-b603efb9771a",
+        "X-Runtime": "4.260020",
+        "Vary": "Origin",
+        "Content-Length": "130"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/verify\" -d '{\"type\":\"restaurant\",\"otp\":3381}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

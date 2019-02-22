@@ -1,0 +1,31 @@
+{
+  "resources": [
+    {
+      "name": "Restaurant",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Registering the mobile number",
+          "link": "restaurant/registering_the_mobile_number.json",
+          "groups": "all",
+          "route": "/signup",
+          "method": "post"
+        },
+        {
+          "description": "Updating an account",
+          "link": "restaurant/updating_an_account.json",
+          "groups": "all",
+          "route": "/update",
+          "method": "patch"
+        },
+        {
+          "description": "Verifying the otp ",
+          "link": "restaurant/verifying_the_otp_.json",
+          "groups": "all",
+          "route": "/verify",
+          "method": "post"
+        }
+      ]
+    }
+  ]
+}

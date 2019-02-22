@@ -1,0 +1,72 @@
+{
+  "resource": "Restaurant",
+  "resource_explanation": null,
+  "http_method": "PATCH",
+  "route": "/update",
+  "description": "Updating an account",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Type of user- Customer/Restaurant"
+    },
+    {
+      "required": true,
+      "name": "res_name",
+      "description": "Name of the restaurant/customer"
+    },
+    {
+      "required": true,
+      "name": "poc_name",
+      "description": "Name of the person of contact for restaurant / Customer"
+    },
+    {
+      "name": "poc_email",
+      "description": "Email of the person of contact for restaurant / Customer"
+    },
+    {
+      "required": true,
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "required": true,
+      "name": "contact_no",
+      "description": "Contact number of person"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/update",
+      "request_body": "{\"type\":\"restaurant\",\"res_name\":\"Paramhhans\",\"poc_name\":\"Ajay Gupta\",\"poc_email\":\"ajay@abc.com\",\"password\":\"ajay\",\"contact_no\":1111122222}",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"res_name\": null,\n  \"poc_name\": \"Ajay Gupta\",\n  \"poc_email\": \"ajay@abc.com\",\n  \"password_digest\": \"$2a$04$bpoJ69.fHxiObHaDjOdT8urkj3Xk4lxxe/Ao5xWQ6MYTqMWpRiPtq\",\n  \"poc_contact_no\": 1111122222,\n  \"otp\": 3381,\n  \"created_at\": \"2019-02-22T09:21:06.363Z\",\n  \"updated_at\": \"2019-02-22T09:21:06.380Z\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"f08f793ebccbc9b5b9d001ff85b176a8\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "a7fc119c-45e7-46bf-8912-8ae9b9f25974",
+        "X-Runtime": "0.014058",
+        "Vary": "Origin",
+        "Content-Length": "275"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/update\" -d '{\"type\":\"restaurant\",\"res_name\":\"Paramhhans\",\"poc_name\":\"Ajay Gupta\",\"poc_email\":\"ajay@abc.com\",\"password\":\"ajay\",\"contact_no\":1111122222}' -X PATCH \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
